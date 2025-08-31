@@ -30,10 +30,10 @@ export default function Footer() {
             <div>
               <h4 className="mb-3 font-medium text-white">Resources</h4>
               <ul className="space-y-2">
-                <li><a href="#blog" className="hover:text-white">Blog</a></li>
-                <li><a href="#faq" className="hover:text-white">FAQ</a></li>
+                <li><a href="/blogs" className="hover:text-white">Blog</a></li>
+                {/* <li><a href="#faq" className="hover:text-white">FAQ</a></li>
                 <li><a href="#privacy" className="hover:text-white">Privacy</a></li>
-                <li><a href="#terms" className="hover:text-white">Terms</a></li>
+                <li><a href="#terms" className="hover:text-white">Terms</a></li> */}
               </ul>
             </div>
           </div>

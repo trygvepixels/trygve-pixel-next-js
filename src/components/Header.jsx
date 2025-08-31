@@ -15,7 +15,7 @@ export default function Header() {
 
   return (
     <header className="fixed w-full top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur-md supports-[backdrop-filter]:bg-black/30">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-8">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 sm:px-0 lg:px-0">
         {/* Logo */}
         <Link href="/" className="group inline-flex items-center gap-3">
           {/* Minimal logo mark */}
