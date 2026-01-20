@@ -1,12 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { FiMail, FiLock } from 'react-icons/fi';
 import Image from 'next/image';
- import logo from '@/assets/logo.png'
-export default function LoginPage() {
+import logo from '@/assets/logo.png'
+
+function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -70,7 +71,7 @@ export default function LoginPage() {
           <aside className="relative hidden md:flex flex-col justify-between rounded-l-3xl bg-gradient-to-b from-[#234D7E] to-[#173352] p-8 text-white">
             <div className="flex items-center gap-3 bg-w">
               <span className='bg-white'>
-                              <Image src={logo} alt="Trygve Studio logo" width={40} height={40} priority />
+                <Image src={logo} alt="Trygve Studio logo" width={40} height={40} priority />
 
               </span>
               <span className="text-lg font-semibold tracking-wide">Trygve Studio</span>
@@ -203,11 +204,23 @@ export default function LoginPage() {
                 <div className="absolute inset-0 top-1/2 -translate-y-1/2 border-t border-black/10" />
               </div>
 
-             
+
             </form>
           </main>
         </div>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex min-h-screen items-center justify-center bg-[#F4F1EC]">
+        <div className="text-[#234D7E] font-semibold">Loading...</div>
+      </div>
+    }>
+      <LoginForm />
+    </Suspense>
   );
 }

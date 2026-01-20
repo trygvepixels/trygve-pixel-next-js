@@ -1,12 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { FiMail, FiLock } from 'react-icons/fi';
 import Image from 'next/image';
- import logo from '@/assets/logo.png'
-export default function LoginPage() {
+import logo from '@/assets/logo.png'
+
+function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -209,5 +210,17 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex min-h-screen items-center justify-center bg-[#F4F1EC]">
+        <div className="text-[#234D7E] font-semibold">Loading...</div>
+      </div>
+    }>
+      <LoginForm />
+    </Suspense>
   );
 }
